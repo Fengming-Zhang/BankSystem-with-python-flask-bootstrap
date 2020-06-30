@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+    <title>银行业务管理系统</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='dist/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{{ url_for('static', filename='assets/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/carousel.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/new.css') }}" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../static/assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">科大银行</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">登出</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="dropdown">
+              <a href="/system"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                客户管理
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="../newcustomer">新增客户</a></li>
+                <li><a href="../deletecustomer">注销客户</a></li>
+                <li><a href="../modifycustomer">修改客户信息</a></li>
+                <li><a href="../searchcustomer">查询客户信息</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="/system"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                账户管理
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="../newaccount">开设账户</a></li>
+                <li><a href="../deleteaccount">销毁账户</a></li>
+                <li><a href="../modifyaccount">修改账户信息</a></li>
+                <li><a href="../searchaccount">查询账户信息</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="/system"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                贷款管理
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="../newloan">新增贷款</a></li>
+                <li><a href="../deleteloan">删除贷款</a></li>
+                <li><a href="../searchloan">查询贷款信息</a></li>
+                <li><a href="../issueloan">发放贷款</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="/system"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                业务统计
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="../statistics-business">按业务类型</a></li>
+                <li><a href="../statistics-time">按时间顺序</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">开设账户</h1>
+					<form method="post" action="">
+						<table class="group_input">
+							<tr>
+								<td class="group_comment">账户 ID *</td>
+								<td class="group_blank"><input type="text" name="accountID" placeholder="不超过22位" required/></td>
+              </tr>
+              <tr>
+								<td class="group_comment">User ID *</td>
+								<td class="group_blank"><input type="text" name="UserID" placeholder="不超过22位" required/></td>
+							</tr>
+							<tr>
+								<td class="group_comment">支行名称 *</td>
+								<td class="group_blank"><input type="text" name="bankname" placeholder="不超过10个字符" required/></td>
+							</tr>
+							<tr>
+								<td class="group_comment">Staff ID</td>
+								<td class="group_blank"><input type="text" name="staffID" placeholder="不超过16位"/></td>
+							</tr>
+							<tr>
+								<td class="group_comment">余额 *</td>
+								<td class="group_blank"><input type="text" name="balance" placeholder="不超过10位" required/></td>
+							</tr>
+							<tr>
+								<td class="group_comment">开户日期 *</td>
+								<td class="group_blank"><input type="text" name="opendate" placeholder="如: 2020-01-01" required/></td>
+							</tr>
+							<tr>
+								<td class="group_comment">开户支行</td>
+								<td class="group_blank"><input type="text" name="openbank" placeholder="不超过10个字符"/></td>
+              </tr>
+              <tr>
+								<td class="group_comment">账户类型 *</td>
+								<td class="group_blank">
+                  <input id="store_radio" type="radio" name="accounttype" value="0" placeholder="不超过10个字符" checked="checked"/>储蓄账户
+                  <input id="check_radio" type="radio" name="accounttype" value="1" placeholder="不超过10个字符"/>支票账户
+                </td>
+              </tr>
+              <tr id="store">
+                <td class="group_comment">利率 *</td>
+                <td class="group_blank"><input type="text" name="interestrate" placeholder="不超过10位"/></td>
+              </tr>
+              <tr id="check_type" style="display: none;">
+                <td class="group_comment">货币类型 *</td>
+                <td class="group_blank"><input type="text" name="currencytype" placeholder="不超过10个字符"/></td>
+              </tr>
+              <tr id="check_num" style="display: none;">
+                <td class="group_comment">透支额 *</td>
+                <td class="group_blank"><input type="text" name="overdraft" placeholder="不超过10位"/></td>
+              </tr>
+						</table>
+						<button type="submit" class="submit_btn" id="btnSubmit">开设账户</button>
+						<span class="agreement-tip">点击「开设账户」按钮，即代表您同意<a href="#">《科大银行协议》</a></span>
+					</form>
+				</div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+    <script>window.jQuery || document.write('<script src="../static/assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../static/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../static/assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../static/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script>
+      var store_radio = document.getElementById("store_radio");
+      var check_radio = document.getElementById("check_radio");
+      var store = document.getElementById("store");
+      var check_type = document.getElementById("check_type");
+      var check_num = document.getElementById("check_num")
+
+      store_radio.onclick = ClickStore;
+      function ClickStore() {
+        store.style.display = "";
+        check_type.style.display = "none";
+        check_num.style.display = "none";
+      }
+
+      check_radio.onclick = ClickCheck;
+      function ClickCheck() {
+        store.style.display = "none";
+        check_type.style.display = "";
+        check_num.style.display = "";
+      }
+    </script>
+  </body>
+</html>

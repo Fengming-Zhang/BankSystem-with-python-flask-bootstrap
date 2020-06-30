@@ -1,0 +1,55 @@
+.group_input {
+	border-collapse: separate;
+	border-spacing: 0px 10px;
+	position: relative;
+	text-align: center;
+}
+
+.group_input input {
+	width: 274px;
+	padding: 16px 12px;
+	margin: -1px;
+	border:1px solid #d5d5d5;
+	border-radius: 3px;
+	background-color: #fff;
+}
+
+.group_select {
+	width: 100px;
+	padding: 16px 12px;
+	margin: -1px;
+	border:1px solid #d5d5d5;
+	border-radius: 3px;
+	background-color: #fff;
+}
+
+.group_input tr {
+	height: 52px;
+}
+
+.group_comment {
+	width: 200px;
+	position: relative;
+}
+
+.group_blank {
+	width: 800px;
+	position: relative;
+}
+
+.submit_btn {
+	width: 100%;
+	box-shadow: none;
+	border:0;
+	line-height: 45px;
+	font-size: 15px;
+	display: block;
+	margin:20px 0;
+	color: #fff;
+	background-color: #0f88eb;
+	border-radius: 3px;
+}
+
+.agreement-tip{
+	text-align: center;
+}
